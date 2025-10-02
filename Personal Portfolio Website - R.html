@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reguri Revathi</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-color: #0a0a0a;
+      --second-bg-color: #101820;
+      --text-color: #ffffff;
+      --main-color: #00cc44;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 62.5%;
+    }
+
+    body {
+      background: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header.header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      padding: 2rem 5%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 3rem;
+      font-weight: bold;
+      color: var(--main-color);
+    }
+    .logo h3 span{
+color:#ccc
+    }
+
+    .navbar a {
+      font-size: 1.8rem;
+      color: var(--text-color);
+      margin-left: 2rem;
+      text-decoration: none;
+      position: relative;
+    }
+
+    .navbar a::after {
+      content: '';
+      width: 0;
+      height: 2px;
+      background: var(--main-color);
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      transition: 0.3s ease;
+    }
+
+    .navbar a:hover::after,
+    .navbar a.active::after {
+      width: 100%;
+    }
+
+    section {
+      padding: 10rem 5% 6rem;
+    }
+    span{
+    color: var(--main-color);
+}
+
+
+   .home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:15rem;
+    background-color: var(--second-bg-color);
+}
+.home-content{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+}
+.home-content h1{
+    font-size: 8rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    line-height: 1;
+}
+.home-content h3{
+    font-size: 4 rem;
+    margin: 1rem 0;
+}
+.home-content p{
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.8;
+}
+.home-img img{
+    width: 32vw;
+    border-radius: 50%;
+    box-shadow: 0 0 25px var(--main-color);
+    transition: 0.4s ease-in-out;
+}
+.home-img img:hover{
+    box-shadow: 0 0 25px var(--main-color),
+                 0 0 50px var(--main-color),
+                0 0 100px var(--main-color);
+}
+
+.btn-group{
+    display: flex;
+    gap: 1.5rem;
+}
+.btn{
+    display: inline-block;
+    padding: 1rem 3rem;
+    background: var(--main-color);
+    box-shadow: 0 0 25px var(--main-color);
+    border-radius: 3rem;
+    font-size: 1.8rem;
+    color: black;
+    border: 2px solid transparent;
+    font-weight: 600;
+    transition: 0.3s ease-in-out;
+}
+.btn:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 25px var(--main-color),
+                0 0 50px var(--main-color);
+}
+.btn-group a:nth-of-type(2){
+    background-color: black;
+    color: var(--main-color);
+    border: 2px solid var(--main-color);
+    box-shadow: 0 0 25px transparent;
+}
+.btn-group a:nth-of-type(2):hover{
+    box-shadow: 0 0 25px var(--main-color);
+    background-color: var(--main-color);
+    color: black;
+}
+.about{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:10rem;
+    background-color: var(--second-bg-color);
+}
+.about-img img{
+    width: 20vw;
+    border-radius: 25%;
+    box-shadow: 0 0 25px var(--main-color);
+    transition: 0.4s ease-in-out;
+}
+.about-img img:hover{
+      box-shadow: 0 0 25px var(--main-color),
+                 0 0 50px var(--main-color),
+                0 0 100px var(--main-color);
+}
+.about-content h2{
+    font-size: 7rem;
+    text-align: left;
+}
+.about-content p{
+    font-size: 1.8rem;
+}
+.about-content .btn{
+    margin: 3rem 0;
+}
+::-webkit-scrollbar{
+    width: 20px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: var(--main-color);
+}
+::-webkit-scrollbar-track{
+    background-color: var(--bg-color);
+}
+.heading{
+    text-align: center;
+    font-size: 7rem;
+    margin: 5rem 0;
+}
+
+
+
+    .Skills {
+      background: var(--second-bg-color);
+    }
+
+    .Skills .heading {
+      font-size: 3rem;
+      margin-bottom: 3rem;
+      text-align: center;
+      color: var(--main-color);
+    }
+
+    .Skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .Skills-item {
+      background: #1a1a1a;
+      border-left: 5px solid var(--main-color);
+      padding: 2rem;
+      border-radius: 10px;
+    }
+
+    .Skills-item li {
+      font-size: 2.2rem;
+      color: var(--main-color);
+      margin-bottom: 1rem;
+      list-style: none;
+    }
+
+    .Skills-item p {
+      font-size: 1.8rem;
+    }
+
+    .Projects {
+      background: var(--bg-color);
+    }
+
+    .projects .heading {
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: var(--main-color);
+    }
+
+    .Projects-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .Project-card {
+      background: #1a1a1a;
+      border-left: 5px solid var(--main-color);
+      padding: 2.5rem 3rem;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 204, 68, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .Project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 204, 68, 0.6);
+    }
+
+    .project-card h3 {
+      font-size: 2.4rem;
+      color: var(--main-color);
+      margin-bottom: 1rem;
+    }
+
+    .Project-card p {
+      font-size: 1.8rem;
+      white-space: pre-line;
+      line-height: 1.4;
+    }
+
+    .Education {
+      background: var(--second-bg-color);
+      max-width: 900px;
+      margin: 0 auto;
+      border-left: 5px solid var(--main-color);
+      padding: 2.5rem 3rem;
+      border-radius: 10px;
+    }
+
+    .Education h2 {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      color: var(--main-color);
+      text-align: center;
+    }
+
+    .Education-item {
+      margin-bottom: 2rem;
+    }
+
+    .Education-item h3 {
+      font-size: 2rem;
+      color: var(--main-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .Education-item p {
+      font-size: 1.8rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .Contact {
+      background-color: #111;
+    }
+
+    .Contact h2 {
+      font-size: 3rem;
+      margin-bottom: 3rem;
+      color: var(--main-color);
+      text-align: center;
+    }
+
+    .Contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .Contact input,
+    .Contact textarea {
+      width: 100%;
+      padding: 1.8rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 1.8rem;
+    }
+
+    .Contact textarea {
+      resize: vertical;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1.5rem 3rem;
+      background: var(--main-color);
+      border-radius: 40px;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #000;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #00b63a;
+    }
+
+    /* Social + Resume container */
+    .social-resume {
+      max-width: 900px;
+      margin: 2rem auto 4rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .social-icons a {
+      font-size: 2.8rem;
+      color: var(--main-color);
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #00b63a;
+    }
+
+    footer {
+      background: var(--bg-color);
+      color: var(--text-color);
+      text-align: center;
+      padding: 2rem 0;
+      font-size: 1.6rem;
+    }
+
+    @media (max-width: 768px) {
+      .home,
+      .about {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .home-img img,
+      .about-img img {
+        width: 200px;
+      }
+
+      html {
+        font-size: 55%;
+      }
+
+      .social-resume {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+        <a href="#home" class="logo"><h3>Reguri <span> Revathi</span></h3></a>
+        <i class="bx bx-menu" id="menu-icon"></i>
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#Skills">Skills</a>
+            <a href="#Education">Education</a>
+            <a href="#Projects">Projects</a>
+            <a href="#Contact">Contact</a>
+            
+        </nav>
+    </header>
+    <section class="home" id="home">
+        <div class="home-content">
+        <h1>Hi, It`s <span> Revathi</span> </h1>
+         <h2><span>Email id: </span>regurirevathireddy@gmail.com</h2>
+         <h2>8978065038</h2>
+        <p>Iam a Student Pursuing BTech degree in Computer Science And Engineering college<br>|St Martins Engineering college</p>
+        <div class="btn-group">
+        </div>
+    </div>
+
+    <div class="home-img">
+    <img src="C:\Users\Revathi\Downloads\Portfolio Website_files\profile...jpg" alt="">
+    </div>
+    </section>
+      <section class="about" id="about">
+        <div class="about-img">
+            <img src="C:\Users\Revathi\Documents\my pic.jpg">
+        </div>
+        <div class="about-content">
+            <h2>About <span>Me</span></h2>
+            <p> I am an enthusiastic and goal-driven B.Tech Computer Science and Engineering student at St. Martin's Engineering College (SMEC), with a
+strong interest in Python programming and web development. I am eager to learn from experienced professionals, grow my technical abilities, and be part of
+a forward-thinking team</p>
+        </div>
+    </section>
+
+  
+
+  <section class="Skills" id="Skills">
+    <h2 class="heading">Skills</h2>
+    <div class="Skills-container">
+      <div class="Skills-item"><li>Python</li><p>Certified in Infosys Springboard, Udemy, Lets Upgrade, Skill India</p></div>
+      <div class="Skills-item"><li>Java</li><p>Certified in Udemy</p></div>
+      <div class="Skills-item"><li>HTML & CSS</li><p>Certified in Infosys Springboard, Lets Upgrade</p></div>
+      <div class="Skills-item"><li>JavaScript</li><p>Certified in Infosys Springboard, Lets Upgrade</p></div>
+      <div class="Skills-item"><li>Node.js</li><p>Certified in Infosys Springboard</p></div>
+      <div class="Skills-item"><li>MySQL</li><p>Certified in Infosys Springboard</p></div>
+      <div class="Skills-item"><li>MongoDB</li><p>Certified in Infosys Springboard</p></div>
+    </div>
+  </section>
+
+  <section class="Projects" id="Projects">
+    <h2 class="heading">Projects</h2>
+    <div class="Projects-container">
+      <div class="Project-card">
+        <h3>MAMABOT: A System Used ML And NLP For Supporting Womens And Families During Pregnancy</h3>
+        <p>Artificial intelligence is transforming healthcare with a profound paradigm
+shift impacting diagnostic techniques, drug discovery, health analytics, interventions
+and much more. In this paper we focus on exploiting AI-based Pregbot systems,
+mainly based on machine learning algorithms and Natural Language Processing, to
+understand and respond to needs of patients and their families. In particular, we
+describe an application scenario for an AI-Pregbot delivering support to pregnant
+women, mothers, and families with young children, by giving them help and
+instructions in relevant situations.</p>
+      </div>
+      <div class="Project-card">
+        <h3>AI-Enhanced Traffic Monitoring Using Object Detection In Images</h3>
+        <p>ONITERING SYSTEM This paper presents an AI-enhanced traffic monitoring system that utilizes
+advanced object detection techniques to analyze vehicular activity from image and
+video data. Leveraging deep learning models such as YOLO (You Only Look Once)
+and SSD (Single Shot MultiBox Detector), the system accurately identifies and
+tracks vehicles, pedestrians, and other road elements in real time. The proposed
+approach offers a scalable and cost-effective alternative to traditional traffic
+monitoring systems by automating data collection and analysis. Applications
+include traffic flow optimization, congestion detection, and accident monitoring.
+Experimental results demonstrate high detection accuracy and real-time
+performance, highlighting the potential of AI-driven vision systems to significantly
+improve urban traffic management and safety.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="Education" id="Education">
+    <h2>Education</h2>
+    <div class="Education-item">
+      <h3>Sri Sai High School</h3>
+      <p>SSC</p>
+      <p>Year: 2020 | GPA: 10</p>
+    </div>
+    <div class="Education-item">
+      <h3>Anurag College Of Engineering</h3>
+      <p>Diploma in Electronics Communication And Engineering</p>
+      <p>Year: 2023 | GPA: 8.25</p>
+    </div>
+    <div class="Education-item">
+      <h3>ST Martin's Engineering College</h3>
+      <p>BTech in Computer Science And Engineering</p>
+      <p>Year: 2026 (Expected) | Current CGPA: 7.79</p>
+    </div>
+  </section>
+
+  <section class="Contact" id="Contact">
+    <h2>Contact <span>Me</span></h2>
+    <form>
+      <input type="text" placeholder="Full Name" required />
+      <input type="email" placeholder="Email" required />
+      <input type="text" placeholder="Subject" />
+      <textarea rows="6" placeholder="Your Message"></textarea>
+      <input type="submit" value="Send Message" class="btn" />
+    </form>
+  </section>
+
+  <div class="social-resume">
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/reguri-revathi" target="_blank" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+      <a href="https://github.com/regurirevathi" target="_blank" aria-label="GitHub"><i class='bx bxl-github'></i></a>
+      <a href="https://twitter.com/regurirevathi" target="_blank" aria-label="Twitter"><i class='bx bxl-twitter'></i></a>
+      <a href="https://www.instagram.com/regurirevathi" target="_blank" aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
+    </div>
+    <a href="C:\Users\Revathi\Documents\Reguri Revathi .pdf" download class="btn" aria-label="Download Resume">Download Resume</a>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Reguri Revathi. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Navbar active link switch on scroll for new Education section
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".navbar a");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 80; // offset for fixed header
+        const sectionHeight = section.clientHeight;
+
+        if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("href").substring(1) === current) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
